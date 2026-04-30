@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+gunicorn
+motor
+sqlalchemy[asyncio]
+asyncpg
+redis
+pydantic-settings
+httpx

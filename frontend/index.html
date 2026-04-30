@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Incident Dashboard</h1>
+    <div hx-get="/api/incidents" hx-trigger="every 2s">
+        <!-- Live feed of active incidents loaded here -->
+    </div>
+</body>
+</html>
