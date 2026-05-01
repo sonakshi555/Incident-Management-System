@@ -6,7 +6,6 @@ import time
 URL = "http://localhost:8000/ingest"
 HEADERS = {"X-IMS-KEY": "sre-secret-key"}
 
-# SRE Best Practice: Use a Semaphore to prevent socket exhaustion
 # This limits concurrency to 50 signals at a time
 SEMAPHORE = asyncio.Semaphore(50)
 

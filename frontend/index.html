@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>SRE Incident Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Incident Dashboard</h1>
-    <div hx-get="/api/incidents" hx-trigger="every 2s">
-        <!-- Live feed of active incidents loaded here -->
+    <h1>Mission-Critical Incident Feed</h1>
+    <div id="incident-list">
+        <!-- Incidents will load here -->
     </div>
+
+    <div id="rca-modal" style="margin-top: 20px; border-top: 2px solid #ccc;">
+        <h2>Submit Root Cause Analysis (RCA)</h2>
+        <form id="rca-form" onsubmit="submitRca(event)">
+            <input type="hidden" id="rca-incident-id">
+            <select id="category" required>
+                <option value="DATABASE_FAILURE">Database Failure</option>
+                <option value="NETWORK_LATENCY">Network Latency</option>
+                <option value="CONFIG_ERROR">Config Error</option>
+            </select><br>
+            <textarea id="fix" placeholder="What fix was applied?" required></textarea><br>
+            <textarea id="prevention" placeholder="How to prevent this?" required></textarea><br>
+            <button type="submit">Close Incident</button>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
